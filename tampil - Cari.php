@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<?php
+    include('koneksi.php');
+    $sql="select * from tblbarang";
+    $hasil=mysqli_query($con,$sql);
+    //$jdata=mysqli_num_rows($hasil);
+?>    
+    <h1 align="center">TABEL BARANG</h1>
+    <center>
+    <form method="post" action="">
+        <input type="text" name="txtinput" id="" placeholder="Masukkan Kode yang dicari">
+        <input type="submit" name="cmdcari" value="Cari"/></form></center>
+    <table border="1" cellpadding="0" cellspacing="0" align="center">
+    <thead>
+        <tr>
+            <th>NO</th>
+            <th>Kode</th>
+            <th>Nama</th>
+            <th>Jumlah</th>
+            <th>Harga</th>
+            <th>Jenis</th>
+            <th>Gambar</th>
+        </tr>
+    </thead>
+<?php
+    if (isset($_POST['cmdcari']))
+    {
+        $tcari=$_POST['txtinput'];
+        $sql1="select * from tblbarang where namabrg like '%$tcari%' or kodebrg like '%$tcari%' or gambar like '%$tcari%'";
+        $hasil=mysqli_query($con,$sql1);
+        $jumlah=mysqli_num_rows($hasil);
+        // echo "Jumlah Data : ".$jumlah;
+        $no=1;
+    while ($data=mysqli_fetch_array($hasil))
+    {
+?>
+        <tr>
+            <td><?php echo $no;?></td>
+            <td><?php echo $data['kodebrg'];?></td>
+            <td><?php echo $data['namabrg'];?></td>
+            <td><?php echo $data['jumlah'];?></td>
+            <td><?php echo $data['harga'];?></td>
+            <td><?php echo $data['jenis'];?></td>
+            <td><img src="<?php echo $data['gambar'];?>" alt="" width="150"></td>
+        </tr>
+<?php
+        $no++;
+    }
+?>
+    </table>
+<?php
+    }
+?>
+</body>
+</html>

@@ -1,5 +1,5 @@
 # kelas_ssp_php
-Materi SSP menggunakan PHP 7 buat kelas untuk kurikulum sebelum angkatan 2020.
+Materi SSP menggunakan PHP 7 buat kelas untuk kurikulum sebelum angkatan 2020 pada Institut Teknologi dan Bisnis Asia Malang prodi TI.
 1. Halaman utama : index.php
 2. Semua file berhubungan dengan materi kelas Server Side Programming yang tersimpan di playlist : https://www.youtube.com/playlist?list=PL0PL62OxSqW_yOfK4FAA2nMNT4SoXo962
 3. File database ada di kelas_ssp jan.sql
